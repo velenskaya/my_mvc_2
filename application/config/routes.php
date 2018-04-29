@@ -9,6 +9,12 @@ return [
 		'action' => 'index',
 	],
 
+	// страница с контактами
+	'contacts' => [
+		'controller' => 'contact',
+		'action' => 'contacts',
+	],
+
 	//страница входа - массив 'account/login' в котором будет два значения
 	'account/login' => [
 		'controller' => 'account',
