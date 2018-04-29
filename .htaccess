@@ -1,0 +1,8 @@
+# Настройки сервера Apache
+
+AddDefaultCharset utf-8
+
+RewriteEngine on
+RewriteCond %{REQUEST_fILENAME} !-f
+RewriteCond %{REQUEST_fILENAME} !-d
+RewriteRule ^(.*)$ index.php
