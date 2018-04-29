@@ -3,6 +3,12 @@
 //будет просто возврат массива return
 
 return [
+	//название главной страницы  будет массив 'account/login' в котором будет два значения
+	'' => [
+		'controller' => 'main',
+		'action' => 'index',
+	],
+
 	//название 1 страницы  будет массив 'account/login' в котором будет два значения
 	'account/login' => [
 		'controller' => 'account',
@@ -15,4 +21,5 @@ return [
 		'controller' => 'news',
 		'action' => 'show',
 	]
+ 
 ];

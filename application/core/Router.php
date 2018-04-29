@@ -30,15 +30,27 @@
  		foreach ($this->routes as $route=>$params){
  			//поиск совпадения
  			if (preg_match($route, $url, $matches)) {
- 				var_dump($matches);
- 				//echo '12345';
+ 				$this->params = $params;
+ 				return true;
  			}
  		}
- 		
- 	}
+ 		return false;
+  	}
 
  	public function run() {   //функция на запуск
- 		$this->match();
+ 		//$this->match();
+ 		if ($this->match()) {
+ 			$controller ='application\controllers\\'.ucfirst($this->params['controller']).'Controller.php';
+ 			if (class_exists($controller)) {
+ 				//;
+ 			}
+ 		} else {
+ 			echo 'не найден'.$controller;
+ 		}
+ 	} else {
+ 		echo 'маршрут не найден';
  	}
 
  }
+
+// подключение контроллера и вызов нужного действия
