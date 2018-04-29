@@ -37,20 +37,24 @@
  		return false;
   	}
 
- 	public function run() {   //функция на запуск
- 		//$this->match();
+ 	public function run() {   //функция для запускф
  		if ($this->match()) {
- 			$controller ='application\controllers\\'.ucfirst($this->params['controller']).'Controller.php';
- 			if (class_exists($controller)) {
- 				//;
- 			}
- 		} else {
- 			echo 'не найден'.$controller;
+ 			$path ='application\controllers\\'.ucfirst($this->params['controller']).'Controller';
+ 			if (class_exists($path)) {
+ 				$action = $this->params['action'].'Action';
+ 				if (method_exists($path, $action)) {
+ 					$controller =  new $path;  
+ 					$controller->$action();
+ 				} else {
+ 					echo 'Не найден екшен:'.$action;
+ 				}
+  		} else {
+ 			echo 'не найден контроллер:'.$path;
  		}
  	} else {
  		echo 'маршрут не найден';
  	}
 
- }
-
+  }
+}
 // подключение контроллера и вызов нужного действия

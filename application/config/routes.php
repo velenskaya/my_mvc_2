@@ -3,19 +3,25 @@
 //будет просто возврат массива return
 
 return [
-	//название главной страницы  будет массив 'account/login' в котором будет два значения
+	//главная страница  
 	'' => [
 		'controller' => 'main',
 		'action' => 'index',
 	],
 
-	//название 1 страницы  будет массив 'account/login' в котором будет два значения
+	//страница входа - массив 'account/login' в котором будет два значения
 	'account/login' => [
 		'controller' => 'account',
 		'action' => 'login',
 	],
 
-	//название 2 страницы  будет массив 'news/show' в котором будет два значения
+	//страница регистрации  - массив 'account/register' в котором будет два значения
+	'account/register' => [
+		'controller' => 'account',
+		'action' => 'register',
+	],
+
+	//страница новостей - массив 'news/show' в котором будет два значения
 
 	'news/show' => [
 		'controller' => 'news',
