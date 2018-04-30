@@ -5,7 +5,7 @@ namespace application\core;
 {
 	public $path; // путь
 	public $route;
-	public $layout ='default'; // шаблон
+	public $layout ='default'; // шаблон по умолчанию 'default'
 
 	public function __construct($route) 
 	{
@@ -22,7 +22,8 @@ namespace application\core;
 			$content = ob_get_clean();
 			require_once 'application/views/layouts/'.$this->layout.'.php';
 		} else {
-			echo 'Вид не найден';
+			//echo 'Вид не найден';
+			throw new Exception('View not found!');
 		}
 		
 	}
