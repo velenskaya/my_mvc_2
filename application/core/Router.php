@@ -37,7 +37,7 @@
  		return false;
   	}
 
- 	public function run() {   //функция для запускф
+ 	public function run() {   //функция для запуска
  		if ($this->match()) {
  			$path ='application\controllers\\'.ucfirst($this->params['controller']).'Controller';
  			if (class_exists($path)) {
