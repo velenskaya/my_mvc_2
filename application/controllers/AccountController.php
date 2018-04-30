@@ -15,6 +15,4 @@ class AccountController extends Controller
 	{
 		$this->view->render('Регистрация');
 	}
-	
-
 }

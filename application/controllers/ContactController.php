@@ -8,7 +8,7 @@ class ContactController extends Controller
 {
 	public function contactsAction() 
 	{
-		$this->view->render('страница с контактами');
+		$this->view->render('Контакты');
+		//echo 'dgdsgsgds';
 	}
-
 }

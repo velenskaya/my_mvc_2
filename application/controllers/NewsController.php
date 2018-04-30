@@ -8,7 +8,8 @@ class NewsController extends Controller
 {
 	public function showAction() 
 	{
-		echo 'Страница новостей';
+		//echo 'Страница новостей';
+		$this->view->render('Новости');
 	}
 
 }
