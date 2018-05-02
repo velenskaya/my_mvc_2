@@ -40,6 +40,7 @@
  	public function run() {   //функция для запуска
  		if ($this->match()) {
  			$path ='application\controllers\\'.ucfirst($this->params['controller']).'Controller';
+ 			var_dump($path);
  			if (class_exists($path)) {
  				$action = $this->params['action'].'Action';
  				if (method_exists($path, $action)) {
