@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Формы</title>
-	<link rel="stylesheet" href="styles/css/reset.css">
-	<link rel="stylesheet" href="styles/css/style.css">
+	<link rel="stylesheet" href="../styles/css/reset.css">
+	<link rel="stylesheet" href="../styles/css/style.css">
 
 </head>
 <body>
