@@ -1,6 +1,7 @@
 <?php
  namespace application\core;
 
+ use application\core\View;
  class Router
  {
  	protected $routes = [];
@@ -31,30 +32,37 @@
  			//поиск совпадения
  			if (preg_match($route, $url, $matches)) {
  				$this->params = $params;
- 				return true;
+ 				if (empty($params)) {
+ 				    throw new \LogicException('Empty params');
+                }
+
+                return true;
  			}
  		}
- 		return false;
+
+ 		throw new \Exception('Route not found');
   	}
 
  	public function run() {   //функция для запуска
- 		if ($this->match()) {
- 			$path ='application\controllers\\'.ucfirst($this->params['controller']).'Controller';
- 			var_dump($path);
- 			if (class_exists($path)) {
- 				$action = $this->params['action'].'Action';
- 				if (method_exists($path, $action)) {
- 					$controller =  new $path($this->params);  
- 					$controller->$action();
- 				} else {
- 					echo 'Не найден екшен:'.$action;
- 				}
-  		} else {
- 			echo 'не найден контроллер:'.$path;
+ 		try {
+            $this->match();
+            $path = 'application\controllers\\' . ucfirst($this->params['controller']) . 'Controller';
+            //var_dump($path);
+            if (class_exists($path)) {
+                $action = $this->params['action'] . 'Action';
+                if (method_exists($path, $action)) {
+                    $controller = new $path($this->params);
+                    $controller->$action();
+                } else {
+                    View::errorCode(404); // :: - вызов статичного метода не создавая экземпляр класса
+                }
+            } else {
+                View::errorCode(404);
+            }
+        } catch (\LogicException $e) {
+            View::errorCode(401);
+ 	    } catch (\Exception $e) {
+ 		    View::errorCode(404); //если маршрут не найден;
  		}
- 	} else {
- 		//echo 'маршрут не найден';
- 		}
-
   }
 }

@@ -16,7 +16,7 @@ class MainController extends Controller
 		];
 		*/
 
-		$this->view->render('главная'); // передача данных в вид
+		$this->render('главная'); // передача данных в вид
 	}
 
 }

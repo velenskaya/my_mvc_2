@@ -9,7 +9,6 @@ class NewsController extends Controller
 	public function showAction() 
 	{
 		//echo 'Страница новостей';
-		$this->view->render('Новости');
+		$this->render('Новости');
 	}
-
 }

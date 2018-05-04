@@ -13,4 +13,9 @@ abstract class Controller
 		$this->route = $route;
 		$this->view = new View($route);
     }
+
+    public function render($name)
+    {
+        $this->view->render($name);
+    }
 }

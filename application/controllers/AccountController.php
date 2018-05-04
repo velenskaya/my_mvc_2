@@ -8,11 +8,12 @@ class AccountController extends Controller
 {
 	public function loginAction() 
 	{
-		$this->view->render('Вход');
+		$this->view->redirect('https://habr.com/post/100137/'); //перенаправление на др страницу
+		$this->render('Вход');
 	}
 	
 	public function registerAction() 
 	{
-		$this->view->render('Регистрация');
+		$this->render('Регистрация');
 	}
 }
